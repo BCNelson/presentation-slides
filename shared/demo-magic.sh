@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2034
 
 ###############################################################################
 #
@@ -186,7 +187,7 @@ function run_cmd() {
 
   trap handle_cancel SIGINT
   stty -echoctl
-  eval $@
+  "$@"
   stty echoctl
   trap - SIGINT
 }
@@ -237,6 +238,10 @@ while getopts ":dhncw:" opt; do
       ;;
     w)
       PROMPT_TIMEOUT=$OPTARG
+      ;;
+    *)
+      usage
+      exit 1
       ;;
   esac
 done
