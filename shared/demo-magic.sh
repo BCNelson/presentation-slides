@@ -115,9 +115,9 @@ function p() {
 
   # show command number is selected
   if $SHOW_CMD_NUMS; then
-   printf "[$((++C_NUM))] $x"
+   printf "[$((++C_NUM))] %s" "$x"
   else
-   printf "$x"
+   printf "%s" "$x"
   fi
 
   # wait for the user to press a key before typing the command
@@ -125,10 +125,11 @@ function p() {
     wait
   fi
 
+  check_pv
   if [[ -z $TYPE_SPEED ]]; then
     echo -en "$cmd"
   else
-    echo -en "$cmd" | pv -qL $[$TYPE_SPEED+(-2 + RANDOM%5)];
+    echo -en "$cmd" | pv -qL $(( TYPE_SPEED+(-2 + RANDOM%5) ));
   fi
 
   # wait for the user to press a key before moving on
@@ -194,26 +195,7 @@ function run_cmd() {
 
 
 function check_pv() {
-  command -v pv >/dev/null 2>&1 || {
-
-    echo ""
-    echo -e "${RED}##############################################################"
-    echo "# HOLD IT!! I require pv for simulated typing but it's " >&2
-    echo "# not installed. Aborting." >&2;
-    echo -e "${RED}##############################################################"
-    echo ""
-    echo -e "${COLOR_RESET}Disable simulated typing: "
-    echo ""
-    echo -e "   unset TYPE_SPEED"
-    echo ""
-    echo "Installing pv:"
-    echo ""
-    echo  "   Mac: $ brew install pv"
-    echo ""
-    echo  "   Other: https://www.ivarch.com/programs/pv.shtml"
-    echo  ""
-    exit 1;
-  }
+  command -v pv >/dev/null 2>&1 || unset TYPE_SPEED
 }
 
 #
