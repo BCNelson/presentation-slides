@@ -1,0 +1,5 @@
+dest
+tmp
+**/airootfs/root/install.sh
+**/airootfs/root/setup.sh
+**/airootfs/root/demo-magic.sh

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-#!/bin/bash
 usage() {
     cat <<EOM
     Usage: $(basename "$0") [-h] [-m mountpiont] demo_disk...
@@ -15,8 +14,6 @@ usage() {
 
 EOM
 }
-
-# shellcheck source=../../shared/demo-magic.sh
 
 MOUNTPOINT=/tmp/zfs-demo
 MAX_SIZE=$(echo "64G" | numfmt --from=iec)

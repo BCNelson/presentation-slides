@@ -38,7 +38,8 @@
 TYPE_SPEED=20
 
 # no wait after "p" or "pe"
-NO_WAIT=false
+NO_WAIT_BEFORE=false
+NO_WAIT_AFTER=false
 
 # if > 0, will pause for this amount of seconds before automatically proceeding with any p or pe
 PROMPT_TIMEOUT=0
@@ -65,7 +66,7 @@ C_NUM=0
 # prompt and command color which can be overriden
 DEMO_PROMPT="$ "
 DEMO_CMD_COLOR=$BOLD
-DEMO_COMMENT_COLOR=$GREY
+DEMO_COMMENT_COLOR=$GREEN
 
 ##
 # prints the script usage
@@ -121,7 +122,7 @@ function p() {
   fi
 
   # wait for the user to press a key before typing the command
-  if [ $NO_WAIT = false ]; then
+  if [ $NO_WAIT_BEFORE = false ]; then
     wait
   fi
 
@@ -133,7 +134,7 @@ function p() {
   fi
 
   # wait for the user to press a key before moving on
-  if [ $NO_WAIT = false ]; then
+  if [ $NO_WAIT_AFTER = false ]; then
     wait
   fi
   echo ""
@@ -162,7 +163,7 @@ function pe() {
 #
 ##
 function pei {
-  NO_WAIT=true pe "$@"
+  NO_WAIT_BEFORE=true pe "$@"
 }
 
 ##
@@ -188,7 +189,7 @@ function run_cmd() {
 
   trap handle_cancel SIGINT
   stty -echoctl
-  "$@"
+  eval "$@"
   stty echoctl
   trap - SIGINT
 }
@@ -213,7 +214,8 @@ while getopts ":dhncw:" opt; do
       unset TYPE_SPEED
       ;;
     n)
-      NO_WAIT=true
+      NO_WAIT_BEFORE=true
+      NO_WAIT_AFTER=true
       ;;
     c)
       SHOW_CMD_NUMS=true

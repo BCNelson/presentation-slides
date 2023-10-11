@@ -23,7 +23,8 @@
                 nodejs
                 pnpm
                 just
-            ];
+                fzf
+            ] ++ lib.optional (lib.hasInfix system == "linux") pkgs.quickemu;
         };
       });
     };

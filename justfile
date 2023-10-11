@@ -6,3 +6,9 @@ default:
 
 new name:
   npx hygen presentation new --name {{name}}
+
+demo *project:
+  just -f {{project}}/justfile demo
+
+present *project:
+  just -f {{project}}/justfile present
