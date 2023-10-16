@@ -16,6 +16,7 @@ build:
     if [[ "$lastUpdatedInputs" > "$lastUpdatedOutputs" ]]; then
         echo "Building Demo"
         docker build -t archisobuild {{justfile_directory()}}/demo/build
+        mkdir -p {{justfile_directory()}}/demo/build/Profile/airootfs/root
         cp {{justfile_directory()}}/demo/install.sh {{justfile_directory()}}/demo/build/Profile/airootfs/root/install.sh
         cp {{justfile_directory()}}/demo/setup.sh {{justfile_directory()}}/demo/build/Profile/airootfs/root/setup.sh
         cp {{justfile_directory()}}/../shared/demo-magic.sh {{justfile_directory()}}/demo/build/Profile/airootfs/root/demo-magic.sh

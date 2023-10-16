@@ -24,7 +24,10 @@
                 pnpm
                 just
                 fzf
-            ] ++ lib.optional (lib.hasInfix system == "linux") pkgs.quickemu;
+            ] ++ lib.optional (lib.hasInfix system == "linux") [
+              pkgs.quickemu
+              pkgs.docker
+            ];
         };
       });
     };
