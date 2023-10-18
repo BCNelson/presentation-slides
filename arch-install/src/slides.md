@@ -24,6 +24,11 @@ By Bradley Nelson
 cat /sys/firmware/efi/fw_platform_size
 ```
 
+| | UEFI | BIOS |
+| --- | --- | --- |
+| 32-bit | `32` | `Error: Not Found` |
+| 64-bit | `64` | `Error: Not Found` |
+
 ---
 
 # Connect to the Internet
@@ -40,7 +45,7 @@ ping -c 3 archlinux.org
 # Update the System Clock
 
 ```bash
-timedatectl
+timedatectl set-ntp true
 ```
 
 ---
@@ -50,10 +55,11 @@ timedatectl
 ```bash
 fdisk -l
 ```
-
+<v-click>
 ```bash
 fdisk /dev/vda
 ```
+</v-click>
 
 ---
 

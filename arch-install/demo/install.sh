@@ -14,7 +14,7 @@ pei "ip link"
 pei "ping -c 3 archlinux.org"
 
 # Update the system clock
-pei "timedatectl"
+pei "timedatectl set-ntp true"
 
 # Partition the disks
 pei "fdisk -l"
