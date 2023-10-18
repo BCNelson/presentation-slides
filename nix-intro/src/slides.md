@@ -322,3 +322,12 @@ transition: fade
             ];
 };});};}
 ```
+
+---
+
+# My Config
+
+# http://github.com/bcnelson/nix-config
+
+---
+
