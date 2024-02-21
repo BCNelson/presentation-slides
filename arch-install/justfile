@@ -4,6 +4,10 @@ set fallback
 demo: build
     cd demo && quickemu --vm ./vm.conf
 
+demo-reset:
+    rm -rf {{justfile_directory()}}/demo/tmp/vm.qcow2
+    rm -f {{justfile_directory()}}/demo/tmp/OVMF_VARS.fd
+
 present:
     cd src && npm run dev -- --remote
 
