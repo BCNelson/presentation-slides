@@ -14,7 +14,6 @@ transition: slide-left
 # Arch Install
 
 **Installation, Configuration**
-By Bradley Nelson
 
 ---
 
