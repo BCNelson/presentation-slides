@@ -10,10 +10,10 @@
   "author": "Bradley Nelson",
   "license": "MIT",
   "dependencies": {
-    "@slidev/cli": "^0.43.7",
-    "@slidev/theme-default": "^0.21.2",
-    "@slidev/theme-seriph": "^0.21.3",
-    "slidev-theme-dracula": "^0.1.1"
+    "@slidev/cli": "^51.4.0",
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "slidev-theme-dracula": "^0.2.0"
   },
   "devDependencies": {
     "enquirer": "^2.4.1"
