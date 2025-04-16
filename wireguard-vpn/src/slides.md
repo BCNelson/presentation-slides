@@ -13,9 +13,6 @@ mdc: true
 # WireGuard
 ## Modern VPN for the Linux Ecosystem
 
-<div class="absolute bottom-10">
-<span class="opacity-50">Linux Conference 2025</span>
-</div>
 
 ---
 

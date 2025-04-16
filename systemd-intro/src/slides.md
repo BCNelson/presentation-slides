@@ -13,9 +13,6 @@ mdc: true
 # systemd
 ## The Linux System and Service Manager
 
-<div class="absolute bottom-10">
-<span class="opacity-50">Linux Conference 2025</span>
-</div>
 
 ---
 
