@@ -1,0 +1,7 @@
+#!/usr/bin/env -S just --justfile
+set fallback
+demo:
+    echo "Home Automation Does not have a demo"
+
+present:
+    cd src && npm run dev -- --remote

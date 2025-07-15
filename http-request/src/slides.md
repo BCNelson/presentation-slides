@@ -204,8 +204,6 @@ Critical tuning areas include buffer sizes, connection timeouts, and TCP paramet
 
 # 4: DNS Resolution
 
-Converting domain names to IP addresses:
-
 ```mermaid {scale: 0.75}
 sequenceDiagram
     Browser->>Local Resolver: Query "example.com"
